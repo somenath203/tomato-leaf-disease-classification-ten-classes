@@ -14,8 +14,7 @@ const signInsignUpUser = async (req, res) => {
 
     const token = await jwt.sign(
       { userId: user?._id },
-      process.env.JWT_SECRET,
-      { expiresIn: process.env.EXPIRES_IN }
+      process.env.JWT_SECRET
     );
 
 
