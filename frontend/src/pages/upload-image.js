@@ -21,11 +21,45 @@ const UploadImage = () => {
     maxFiles: 1,
     onDrop: async (acceptedImage) => {
       try {
+
         const formData = new FormData();
 
         formData.append('fileUploadedByUser', acceptedImage[0]);
 
         setLoading(true);
+        
+
+        const leafOrNotLeaf = await axios.post(
+          `${process.env.REACT_APP_BACKEND_API_FASTAPI_LEAF_OR_NOT_LEAF}/predict`,
+          formData,
+          {
+            headers: {
+              'Content-Type': 'multipart/form-data',
+            },
+          }
+        );
+
+        if (leafOrNotLeaf?.data?.predicted_result === 'not leaf') {
+         
+          toast.error(
+            'The uploaded image does not appear to be that of a tomato leaf. Please upload a tomato leaf image for prediction.',
+            {
+              position: 'top-center',
+              autoClose: 8000,
+              hideProgressBar: false,
+              closeOnClick: true,
+              pauseOnHover: true,
+              draggable: true,
+              theme: 'light',
+            }
+          );
+
+          setLoading(false);
+
+          return;
+
+        }
+
 
         const { data } = await axios.post(
           `${process.env.REACT_APP_BACKEND_API_FASTAPI}/predict`,
