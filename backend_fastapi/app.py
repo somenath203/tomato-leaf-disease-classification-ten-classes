@@ -157,6 +157,7 @@ async def predict_disease(fileUploadedByUser: UploadFile = File(...)):
                              prediction_final_result_mobilenetV2, prediction_final_result_resnet50, prediction_final_result_vgg19]
     all_confidence_results = [confidence_cnnfromscratch, confidence_inceptionV3,
                               confidence_mobilenetV2, confidence_resnet50, confidence_vgg19]
+    
 
     disease_that_is_occurring_for_max_time = Counter(all_predicted_results).most_common(1)[0][0]
 
@@ -165,7 +166,7 @@ async def predict_disease(fileUploadedByUser: UploadFile = File(...)):
     
     name_of_the_models_with_common_prediction = [name_of_the_model for prediction, name_of_the_model in zip(all_predicted_results, ['Novel CNN', 'InceptionV3', 'MobileNetV2', 'Resnet50', 'VGG19']) if prediction == disease_that_is_occurring_for_max_time]
 
-    name_of_the_model_and_its_corresponding_confidence = [f"{name_of_the_model}, {confidence_of_the_model:.2f}%" for name_of_the_model, confidence_of_the_model in zip(name_of_the_models_with_common_prediction , confidence_of_most_common_prediction_by_the_models)] 
+    name_of_the_model_and_its_corresponding_confidence = [f"{name_of_the_model}: {confidence_of_the_model:.2f}%" for name_of_the_model, confidence_of_the_model in zip(name_of_the_models_with_common_prediction , confidence_of_most_common_prediction_by_the_models)] 
 
     
     max_confidence_among_the_common_predicted_disease = np.max(confidence_of_most_common_prediction_by_the_models)
@@ -176,26 +177,55 @@ async def predict_disease(fileUploadedByUser: UploadFile = File(...)):
 
 
     if (disease_that_is_occurring_for_max_time == 'Tomato___Bacterial_spot'):
-        pass
+        
+        about_the_disease = 'Bacterial Spot of Tomato is a disease caused by a group of bacteria, including Xanthomonas vesicatoria, Xanthomonas euvesicatoria, Xanthomonas gardneri, and Xanthomonas perforans. It affects all above-ground parts of a tomato plant, leading to spots on leaves, stems, and fruit. The spots may start as small, water-soaked circles and can become brown, scabby, and rough as they mature. The disease thrives in warm, wet climates and can be severe, causing leaf yellowing and loss, unmarketable fruit, and even plant death.'
+        solution_of_the_disease = 'Unfortunately, once a plant is infected, it cannot be cured. To manage the disease, remove symptomatic plants to prevent the spread of bacteria. Affected plants should be burned, buried, or hot composted. Do not consume symptomatic fruit as they can harbor human pathogens. Prevent future infections by using pathogen-free seeds or transplants, avoiding overhead watering, and considering seed treatments like soaking in hot water at 122°F for 25 minutes to kill the pathogens.'
+    
     elif (disease_that_is_occurring_for_max_time == 'Tomato___Early_blight'):
-        pass
+        
+        about_the_disease = 'Tomato Early Blight is a common disease affecting tomato plants, caused by the fungus Alternaria solani. It is characterized by large, irregular spots with yellow halos on the leaves, which eventually turn yellow. The disease can affect the plant at any stage of maturity, from seedlings to mature plants, and can also impact the stems and fruits. Early Blight thrives in warm, humid conditions and can spread rapidly, especially after morning dew or heavy rainfall.'
+        solution_of_the_disease = 'To manage Early Blight, it is crucial to practice preventive measures since there is no cure once the plant is infected. These include rotating crops to prevent soil-borne diseases, removing and destroying infected leaves, and avoiding overhead watering to minimize leaf wetness. Using mulch can help reduce spore splash from the soil to the plants. Some gardeners use a baking soda solution as a treatment, which involves adding one heaping tablespoon of baking soda, one teaspoon of vegetable oil, and a small amount of mild soap to one gallon of water. However, it\'s important to treat plants as early as possible and on a schedule for the best chance of managing the disease.'
+    
     elif (disease_that_is_occurring_for_max_time == 'Tomato___healthy'):
+
         about_the_disease = 'The leaf is healthy as any kind of disease is not detected in the leaf.'
         solution_of_the_disease = 'No solution is required as the leaf is healthy.'
+
     elif (disease_that_is_occurring_for_max_time == 'Tomato___Late_blight'):
-        pass
+
+        about_the_disease = 'Tomato Late Blight is a disease caused by the oomycete pathogen Phytophthora infestans. It is known for causing the Irish potato famine of the 1840s. This disease affects all above-ground parts of tomato plants, including leaves, stems, and fruit. Symptoms include irregularly shaped, water-soaked lesions on leaves, often with a lighter halo. In high humidity, white cottony growth may appear on the underside of leaves. As the disease progresses, it causes leaves to brown, shrivel, and die, and can also attack tomato fruit, leading to firm rotted areas that become leathery and chocolate brown.'
+        solution_of_the_disease = 'There is no cure for Tomato Late Blight once a plant is infected. Management strategies focus on prevention and include using disease-free transplants, practicing crop rotation, and removing any infected plants or debris. Fungicides containing maneb, mancozeb, chlorothalonil, or fixed copper can help protect plants if applied before the disease strikes. It\'s also important to avoid overhead watering to reduce leaf wetness, which can facilitate the spread of the diseaseThere is no cure for Tomato Late Blight once a plant is infected. Management strategies focus on prevention and include using disease-free transplants, practicing crop rotation, and removing any infected plants or debris. Fungicides containing maneb, mancozeb, chlorothalonil, or fixed copper can help protect plants if applied before the disease strikes. It\'s also important to avoid overhead watering to reduce leaf wetness, which can facilitate the spread of the disease.'
+
     elif (disease_that_is_occurring_for_max_time == 'Tomato___Leaf_Mold'):
-        pass
+
+        about_the_disease = 'Tomato Leaf Mold is a foliar disease caused by the fungus Passalora fulva (formerly known as Cladosporium fulvum). It primarily affects tomatoes grown in humid environments like greenhouses and high tunnels. The disease manifests as pale green to yellowish spots on the upper leaf surfaces, which turn bright yellow as they merge and progress. Infected leaves may curl, wither, and drop from the plant. The pathogen can also infect flowers, stems, and fruit, although it usually affects only the leaf tissue.'
+        solution_of_the_disease = 'To manage Tomato Leaf Mold, it\'s important to use certified disease-free seed or treated seed. In greenhouses, maintain night temperatures higher than outside temperatures, remove and destroy all crop debris post-harvest, and sanitize the greenhouse between crop seasons. Use fans, stake and prune plants to increase ventilation, and avoid overhead watering to minimize leaf wetness. If the disease is detected, apply a fungicide according to the manufacturer\'s instructions at the first sign of infection.'
+        
     elif (disease_that_is_occurring_for_max_time == 'Tomato___Septoria_leaf_spot'):
-        pass
+        
+        about_the_disease = 'Tomato Septoria Leaf Spot is a fungal disease caused by Septoria lycopersici. It primarily affects the older, lower leaves of tomato plants, presenting as black or brown spots with small fruiting bodies in the center. These spots can quickly spread upward, affecting new growth and making the plant susceptible to sun scorch.'
+        solution_of_the_disease = 'While there is no cure for the disease once the plant is infected, management focuses on prevention and control. Remove and destroy infected plant debris, practice crop rotation, and avoid overhead watering to minimize leaf wetness. Fungicides containing copper or potassium bicarbonate can be applied as soon as symptoms appear to help control the spread of the disease.'
+    
     elif (disease_that_is_occurring_for_max_time == 'Tomato___Spider_mites Two-spotted_spider_mite'):
-        pass
+                
+        about_the_disease = 'The Two-Spotted Spider Mite, Tetranychus urticae, is a common pest of tomato plants. These mites are tiny, about 1/50th of an inch, and reddish-orange in color. They cause damage by feeding on the plant tissues, which can affect foliage, flower, and fruit formation. Infested leaves may show stippling or mottled patterns with tiny white or yellow spots. Severe infestations can lead to bleached-looking plants with webbing, and if left untreated, the plant may collapse.'
+        solution_of_the_disease = 'Management of spider mites includes both natural and chemical methods. Spraying the plants with water can help remove mites from the stems and leaves. Applying neem oil, which is a natural pesticide, can also be effective. This should be done every 7 days until the mites are gone. Introducing beneficial insects like ladybugs can provide biological control. In severe cases, insecticidal soaps or sprays may be necessary. It\'s important to apply these treatments as early as possible and to cover all parts of the plant, especially the undersides of leaves.'
+    
     elif (disease_that_is_occurring_for_max_time == 'Tomato___Target_Spot'):
-        pass
+                
+        about_the_disease = 'Tomato Target Spot is a disease caused by the fungal pathogen Corynespora cassiicola. It can infect all above-ground parts of the tomato plant, including leaves, stems, and fruit. Symptoms begin as small, dark lesions on leaves which enlarge to form light brown lesions with a concentric pattern and a yellow halo around them. The lesions can become very large and cover significant areas of the leaf, leading to premature leaf drop and reduced photosynthesis, which can impact yield and fruit marketability.'
+        solution_of_the_disease = 'Managing Tomato Target Spot involves cultural practices and fungicide applications. It\'s important to remove old plant debris at the end of the growing season to prevent spores from traveling to new plants. Crop rotation is recommended, especially avoiding areas where disease-prone plants like eggplant, peppers, potatoes, or tomatoes have been located in the past year. Ensuring good air circulation, watering at the base of the plant to keep leaves dry, and applying mulch to prevent fruit from contacting the soil are also effective strategies. Fungicides such as chlorothalonil, copper oxychloride, or mancozeb can be used, starting treatment when the first spots are seen and continuing at 10-14 days intervals until 3-4 weeks before the last harvest.'
+    
     elif (disease_that_is_occurring_for_max_time == 'Tomato___Tomato_mosaic_virus'):
-        pass
+                
+        about_the_disease = 'Tomato Mosaic Virus (ToMV) is a plant pathogenic virus that is part of the tobamovirus family. It affects tomatoes and a wide range of other plants, including many agricultural crops and weeds. Symptoms in tomatoes include mottling with alternating yellowish and darker green areas, leaves that may appear fern-like with pointed tips, and younger leaves that might be twisted. The fruit can show distortions, yellow blotches, and necrotic spots, and there may be internal browning of the fruit wall. The entire plant may be dwarfed, and flowers discolored.'
+        solution_of_the_disease = 'Unfortunately, there is no cure for plants infected with ToMV. Management focuses on prevention and control. It\'s important to use non-infected clean seeds and to avoid the spread of the virus through contaminated tools and the hands and clothing of workers. The virus can survive for years in dry plant debris, so removing and destroying infected plant material is crucial. Disinfecting tools and equipment with a solution like 1 percent sodium hypochlorite (bleach) can help prevent transmission. Additionally, controlling insects that can spread the virus, such as aphids and leafhoppers, is essential.'
+    
     elif (disease_that_is_occurring_for_max_time == 'Tomato___Tomato_Yellow_Leaf_Curl_Virus'):
-        pass
+                
+        about_the_disease = 'Tomato Yellow Leaf Curl Virus (TYLCV) is a DNA virus from the genus Begomovirus and the family Geminiviridae. TYLCV causes a highly destructive disease of tomato plants, particularly in tropical and subtropical regions, leading to severe economic losses. Infected plants show stunted growth, and leaves that are small and curl upward, exhibiting strong crumpling and yellowing. The virus is transmitted by the whitefly Bemisia tabaci, and can infect other hosts like eggplants, potatoes, tobacco, beans, and peppers.'
+        solution_of_the_disease = 'Unfortunately, there is no cure for plants infected with TYLCV. Management strategies focus on prevention, such as using disease-resistant tomato varieties and controlling the whitefly population to avoid infection. Infected plants should be removed and destroyed to prevent the spread of the virus. It’s also recommended to keep the garden clean and use reflective mulch and row covers to deter whiteflies.'
+
 
     return {
         'success': True,
@@ -230,6 +260,8 @@ async def predict_disease(fileUploadedByUser: UploadFile = File(...)):
             'predicted_result_returned_by_most_of_the_models': disease_that_is_occurring_for_max_time,
             'models_that_made_the_common_prediction_along_with_their_confidence': name_of_the_model_and_its_corresponding_confidence,
             'maximum_confidence_among_the_common_disease_predicted_by_the_models': f'{max_confidence_among_the_common_predicted_disease:.2f}%',
-            'final_message': f'Status of the leaf: {disease_that_is_occurring_for_max_time} with a confidence of {max_confidence_among_the_common_predicted_disease:.2f}%'
+            'final_message': f'Status of the leaf: {disease_that_is_occurring_for_max_time} with a confidence of {max_confidence_among_the_common_predicted_disease:.2f}%',
+            'about_the_final_predicted_disease': about_the_disease,
+            'cure_of_the_final_predicted_disease': solution_of_the_disease
         }
     }
