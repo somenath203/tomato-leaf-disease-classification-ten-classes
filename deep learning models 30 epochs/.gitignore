@@ -5,3 +5,4 @@ mobilenetV2_model
 resnet50_model
 VGG19_model
 alexnet_model
+ensemble_learning_model

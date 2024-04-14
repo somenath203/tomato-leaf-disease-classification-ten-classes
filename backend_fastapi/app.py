@@ -43,6 +43,9 @@ extract_dir_vgg19_model = 'VGG19_model'
 zip_path_alexnet_model = 'alexnet_model.zip'
 extract_dir_alexnet_model = 'alexnet_model'
 
+zip_path_ensemble_learning_model = 'ensemble_learning_model.zip'
+extract_dir_ensemble_learning_model = 'ensemble_learning_model'
+
 
 def unzipModel(zip_path, extract_dir):
 
@@ -59,6 +62,8 @@ unzipModel(zip_path_mobilenetv2_model, extract_dir_mobilenetv2_model)
 unzipModel(zip_path_alexnet_model, extract_dir_alexnet_model)
 unzipModel(zip_path_resnet50_model, extract_dir_resnet50_model)
 unzipModel(zip_path_vgg19_model, extract_dir_vgg19_model)
+unzipModel(zip_path_ensemble_learning_model,
+           extract_dir_ensemble_learning_model)
 
 
 model_cnnfromscratch = load_model(os.path.join(
@@ -72,6 +77,8 @@ model_resnet50 = load_model(os.path.join(
 model_vgg19 = load_model(os.path.join(extract_dir_vgg19_model, 'VGG19_model'))
 model_alexnet = load_model(os.path.join(
     extract_dir_alexnet_model, 'alexnet_model'))
+model_ensemble_learning = load_model(os.path.join(
+    extract_dir_ensemble_learning_model, 'ensemble_learning_model'))
 
 
 app = FastAPI()
@@ -97,7 +104,7 @@ class_names = ['Tomato___Bacterial_spot', 'Tomato___Early_blight', 'Tomato___Lat
 def welcome():
     return {
         'success': True,
-        'message': 'server of "tomato disease classification using 10 classes" is up and running successfully.'
+        'message': 'server of "multimodel tomato disease classification using 10 classes" is up and running successfully.'
     }
 
 
@@ -116,6 +123,8 @@ async def predict_disease(fileUploadedByUser: UploadFile = File(...)):
     image_to_arr_preprocess_input_alexnet = image_to_arr / 255
     image_to_arr_preprocess_input_resnet50 = preprocess_input(image_to_arr)
     image_to_arr_preprocess_input_vgg19 = preprocess_input(image_to_arr)
+    image_to_arr_preprocess_input_ensemble_learning = preprocess_input(
+        image_to_arr)
 
     image_to_arr_preprocess_input_expand_dims_cnnfromscratch = np.expand_dims(
         image_to_arr_preprocess_input_cnnfromscratch, axis=0)
@@ -129,6 +138,8 @@ async def predict_disease(fileUploadedByUser: UploadFile = File(...)):
         image_to_arr_preprocess_input_resnet50, axis=0)
     image_to_arr_preprocess_input_expand_dims_vgg19 = np.expand_dims(
         image_to_arr_preprocess_input_vgg19, axis=0)
+    image_to_arr_preprocess_input_expand_dims_ensemble_learning = np.expand_dims(
+        image_to_arr_preprocess_input_ensemble_learning, axis=0)
 
     prediction_cnnfromscratch = model_cnnfromscratch.predict(
         image_to_arr_preprocess_input_expand_dims_cnnfromscratch)[0]
@@ -142,6 +153,8 @@ async def predict_disease(fileUploadedByUser: UploadFile = File(...)):
         image_to_arr_preprocess_input_expand_dims_resnet50)[0]
     prediction_vgg19 = model_vgg19.predict(
         image_to_arr_preprocess_input_expand_dims_vgg19)[0]
+    prediction_ensemble_learning = model_ensemble_learning.predict(
+        image_to_arr_preprocess_input_expand_dims_ensemble_learning)[0]
 
     prediction_argmax_cnnfromscratch = np.argmax(prediction_cnnfromscratch)
     prediction_argmax_inceptionV3 = np.argmax(prediction_inceptionV3)
@@ -149,6 +162,8 @@ async def predict_disease(fileUploadedByUser: UploadFile = File(...)):
     prediction_argmax_alexnet = np.argmax(prediction_alexnet)
     prediction_argmax_resnet50 = np.argmax(prediction_resnet50)
     prediction_argmax_vgg19 = np.argmax(prediction_vgg19)
+    prediction_argmax_ensemble_learning = np.argmax(
+        prediction_ensemble_learning)
 
     prediction_final_result_cnnfromscratch = class_names[prediction_argmax_cnnfromscratch]
     confidence_cnnfromscratch = np.max(prediction_cnnfromscratch) * 100
@@ -168,10 +183,13 @@ async def predict_disease(fileUploadedByUser: UploadFile = File(...)):
     prediction_final_result_vgg19 = class_names[prediction_argmax_vgg19]
     confidence_vgg19 = np.max(prediction_vgg19) * 100
 
+    prediction_final_result_ensemble_learning = class_names[prediction_argmax_ensemble_learning]
+    confidence_ensemble_learning = np.max(prediction_ensemble_learning) * 100
+
     all_predicted_results = [prediction_final_result_cnnfromscratch, prediction_final_result_inceptionV3,
-                             prediction_final_result_mobilenetV2, prediction_final_result_alexnet, prediction_final_result_resnet50, prediction_final_result_vgg19]
+                             prediction_final_result_mobilenetV2, prediction_final_result_alexnet, prediction_final_result_resnet50, prediction_final_result_vgg19, prediction_final_result_ensemble_learning]
     all_confidence_results = [confidence_cnnfromscratch, confidence_inceptionV3,
-                              confidence_mobilenetV2, confidence_alexnet, confidence_resnet50, confidence_vgg19]
+                              confidence_mobilenetV2, confidence_alexnet, confidence_resnet50, confidence_vgg19, confidence_ensemble_learning]
 
     disease_that_is_occurring_for_max_time = Counter(
         all_predicted_results).most_common(1)[0][0]
@@ -180,7 +198,7 @@ async def predict_disease(fileUploadedByUser: UploadFile = File(...)):
         all_predicted_results, all_confidence_results) if prediction == disease_that_is_occurring_for_max_time]
 
     name_of_the_models_with_common_prediction = [name_of_the_model for prediction, name_of_the_model in zip(
-        all_predicted_results, ['Novel CNN', 'InceptionV3', 'MobileNetV2', 'Alexnet', 'Resnet50', 'VGG19']) if prediction == disease_that_is_occurring_for_max_time]
+        all_predicted_results, ['Novel CNN', 'InceptionV3', 'MobileNetV2', 'Alexnet', 'Resnet50', 'VGG19', 'Ensemble Learning(based on Novel CNN, Resnet50 and MobileNetV2)']) if prediction == disease_that_is_occurring_for_max_time]
 
     name_of_the_model_and_its_corresponding_confidence = [f"{name_of_the_model}: {confidence_of_the_model:.2f}%" for name_of_the_model, confidence_of_the_model in zip(
         name_of_the_models_with_common_prediction, confidence_of_most_common_prediction_by_the_models)]
@@ -245,46 +263,46 @@ async def predict_disease(fileUploadedByUser: UploadFile = File(...)):
         'success': True,
         'prediction_results_of_all_model': [
             {
-                'novel_cnn': {
-                    'predicted_result': prediction_final_result_cnnfromscratch,
-                    'confidence': f'{confidence_cnnfromscratch:.2f}%',
-                    'message': f'Status of the leaf: {prediction_final_result_cnnfromscratch} with a confidence of {confidence_cnnfromscratch:.2f}%'
-                }
+                'name_of_the_model': 'Novel CNN',
+                'predicted_result': prediction_final_result_cnnfromscratch,
+                'confidence': f'{confidence_cnnfromscratch:.2f}%',
+                'message': f'Status of the leaf: {prediction_final_result_cnnfromscratch} with a confidence of {confidence_cnnfromscratch:.2f}%'
             },
             {
-                'inceptionV3': {
-                    'predicted_result': prediction_final_result_inceptionV3,
-                    'confidence': f'{confidence_inceptionV3:.2f}%',
-                    'message': f'Status of the leaf: {prediction_final_result_inceptionV3} with a confidence of {confidence_inceptionV3:.2f}%'
-                }
+                'name_of_the_model': 'InceptionV3',
+                'predicted_result': prediction_final_result_inceptionV3,
+                'confidence': f'{confidence_inceptionV3:.2f}%',
+                'message': f'Status of the leaf: {prediction_final_result_inceptionV3} with a confidence of {confidence_inceptionV3:.2f}%'
             },
             {
-                'mobilenetV2': {
-                    'predicted_result': prediction_final_result_mobilenetV2,
-                    'confidence': f'{confidence_mobilenetV2:.2f}%',
-                    'message': f'Status of the leaf: {prediction_final_result_mobilenetV2} with a confidence of {confidence_mobilenetV2:.2f}%'
-                }
+                'name_of_the_model': 'MobileNetV2',
+                'predicted_result': prediction_final_result_mobilenetV2,
+                'confidence': f'{confidence_mobilenetV2:.2f}%',
+                'message': f'Status of the leaf: {prediction_final_result_mobilenetV2} with a confidence of {confidence_mobilenetV2:.2f}%'
             },
             {
-                'alexnet': {
-                    'predicted_result': prediction_final_result_alexnet,
-                    'confidence': f'{confidence_alexnet:.2f}%',
-                    'message': f'Status of the leaf: {prediction_final_result_alexnet} with a confidence of {confidence_alexnet:.2f}%'
-                }
+                'name_of_the_model': 'Alexnet',
+                'predicted_result': prediction_final_result_alexnet,
+                'confidence': f'{confidence_alexnet:.2f}%',
+                'message': f'Status of the leaf: {prediction_final_result_alexnet} with a confidence of {confidence_alexnet:.2f}%'
             },
             {
-                'resnet50': {
-                    'predicted_result': prediction_final_result_resnet50,
-                    'confidence': f'{confidence_resnet50:.2f}%',
-                    'message': f'Status of the leaf: {prediction_final_result_resnet50} with a confidence of {confidence_resnet50:.2f}%'
-                }
+                'name_of_the_model': 'Resnet50',
+                'predicted_result': prediction_final_result_resnet50,
+                'confidence': f'{confidence_resnet50:.2f}%',
+                'message': f'Status of the leaf: {prediction_final_result_resnet50} with a confidence of {confidence_resnet50:.2f}%'
             },
             {
-                'vgg19': {
-                    'predicted_result': prediction_final_result_vgg19,
-                    'confidence': f'{confidence_vgg19:.2f}%',
-                    'message': f'Status of the leaf: {prediction_final_result_vgg19} with a confidence of {confidence_vgg19:.2f}%'
-                }
+                'name_of_the_model': 'VGG19',
+                'predicted_result': prediction_final_result_vgg19,
+                'confidence': f'{confidence_vgg19:.2f}%',
+                'message': f'Status of the leaf: {prediction_final_result_vgg19} with a confidence of {confidence_vgg19:.2f}%'
+            },
+            {
+                'name_of_the_model': 'Ensemble learning Model(based on Novel CNN, Resnet50 and MobileNetV2)',
+                'predicted_result': prediction_final_result_ensemble_learning,
+                'confidence': f'{confidence_ensemble_learning:.2f}%',
+                'message': f'Status of the leaf: {prediction_final_result_ensemble_learning} with a confidence of {confidence_ensemble_learning:.2f}%'
             }
         ],
         'final_predicted_result_of_the_leaf': {

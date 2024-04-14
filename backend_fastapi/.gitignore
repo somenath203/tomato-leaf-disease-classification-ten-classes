@@ -4,9 +4,11 @@ mobilenetv2_model
 alexnet_model
 resnet50_model
 VGG19_model
+ensemble_learning_model
 cnnfromscratch_model.zip
 inceptionV3_model.zip
 mobilenetv2_model.zip
 alexnet_model.zip
 resnet50_model.zip
 VGG19_model.zip 
+ensemble_learning_model.zip
