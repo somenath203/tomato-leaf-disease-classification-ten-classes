@@ -32,7 +32,7 @@ const About = () => {
                application that uses Convolutional Neural Network (CNN) and
                TensorFlow to detect and classify various types of tomato leaf
                diseases from images. The application uses MERN stack
-               (MongoDB, Express, React, and Node.js) for accepting tomato leaf image input from farmers and
+               (MongoDB, Express, React, and Node.js) for accepting tomato leaf image as input from farmers and
                displaying the disease as output in real time. Additionally, FastAPI is used to connect
                our CNN model with the frontend to provide a fast and reliable
                service. The goal is to provide a simple and accessible tool for
