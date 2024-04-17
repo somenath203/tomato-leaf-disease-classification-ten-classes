@@ -8,7 +8,6 @@ import { toast } from 'react-toastify';
 import {
   AlertDialog,
   AlertDialogAction,
-  AlertDialogCancel,
   AlertDialogContent,
   AlertDialogDescription,
   AlertDialogFooter,
@@ -130,7 +129,7 @@ const UploadImage = () => {
           'your prediction has been made successfully and stored in the database',
           {
             position: 'top-center',
-            autoClose: 3000,
+            autoClose: 2000,
             hideProgressBar: false,
             closeOnClick: true,
             pauseOnHover: true,
@@ -220,7 +219,6 @@ const UploadImage = () => {
         </div>
       </div>
 
-      {/* FIRST MODAL (TABLE) */}
       <AlertDialog open={openResultTableModal} onOpenChange={setOpenResultTableModal}>
         <AlertDialogContent className="overflow-auto max-h-[90vh]">
           <AlertDialogHeader>
@@ -288,13 +286,11 @@ const UploadImage = () => {
             </AlertDialogDescription>
           </AlertDialogHeader>
           <AlertDialogFooter>
-            <AlertDialogCancel className='text-indigo-700 border-2 border-indigo-600 hover:border-indigo-700'>Cancel</AlertDialogCancel>
             <AlertDialogAction className='text-white bg-indigo-600 hover:bg-indigo-800' onClick={() => setOpenResultAnalysisModal(true)}>Continue</AlertDialogAction>
           </AlertDialogFooter>
         </AlertDialogContent>
       </AlertDialog>
 
-      {/* SECOND MODAL (ANALYSIS OF RESULT) */}
       <AlertDialog open={openResultAnalysisModal} onOpenChange={setOpenResultAnalysisModal}>
         <AlertDialogContent className="max-h-[90vh] overflow-y-auto overflow-x-hidden ">
           <AlertDialogHeader>
@@ -327,13 +323,12 @@ const UploadImage = () => {
             </AlertDialogDescription>
           </AlertDialogHeader>
           <AlertDialogFooter>
-            <AlertDialogCancel className='text-indigo-700 border-2 border-indigo-600 hover:border-indigo-700'>Cancel</AlertDialogCancel>
+            <AlertDialogAction className='text-indigo-600 bg-white hover:bg-white border-2 border-indigo-600 hover:border-indigo-800' onClick={() => setOpenResultTableModal(true)}>Previous</AlertDialogAction>
             <AlertDialogAction className='text-white bg-indigo-600 hover:bg-indigo-800' onClick={() => setOpenAboutAndCureOfTheDisease(true)}>Continue</AlertDialogAction>
           </AlertDialogFooter>
         </AlertDialogContent>
       </AlertDialog>
 
-      {/* THIRD MODAL(ABOUT THE PREDICTED DISEASE AND THE POSSIBLE CURE) */}
       <AlertDialog open={openAboutAndCureOfTheDisease} onOpenChange={setOpenAboutAndCureOfTheDisease}>
         <AlertDialogContent className="overflow-y-auto overflow-x-hidden max-h-[90vh]">
           <AlertDialogHeader>
@@ -362,7 +357,7 @@ const UploadImage = () => {
             </AlertDialogDescription>
           </AlertDialogHeader>
           <AlertDialogFooter>
-            <AlertDialogCancel className='text-indigo-700 border-2 border-indigo-600 hover:border-indigo-700'>Cancel</AlertDialogCancel>
+            <AlertDialogAction className='text-indigo-600 bg-white hover:bg-white border-2 border-indigo-600 hover:border-indigo-800' onClick={() => setOpenResultAnalysisModal(true)}>Previous</AlertDialogAction>
             <AlertDialogAction className='text-white bg-indigo-600 hover:bg-indigo-800'>Finish</AlertDialogAction>
           </AlertDialogFooter>
         </AlertDialogContent>
