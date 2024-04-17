@@ -28,23 +28,23 @@ const About = () => {
 
             <div className="flex justify-center items-center flex-col gap-7">
               <p className="text-lg text-center px-7 lg:px-14 font-semibold text-indigo-600 tracking-wide mt-1">
-              The project, Tomato Leaf Disease Prediction, is a web
-              application that uses Convolutional Neural Network (CNN) and
-              TensorFlow to detect and classify various types of tomato leaf
-              diseases from images. The application uses MERN stack
-              (MongoDB, Express, React, and Node.js) for accepting real-time tomato leaf image 
-              input from farmers and displaying the disease as output. Additionally, FastAPI is used to connect
-              our CNN model with the frontend to provide a fast and reliable
-              service. The goal is to provide a simple and accessible tool for
-              farmers to monitor their tomato plants and take preventive
-              measures before the diseases spread and damage their crops. The
-              aim of the project is to help farmers save time, money, and
-              resources, and ultimately increase their productivity and
-              income. Suggestions for making this tool better are always appreciated. 
-              Thank you for taking the time to explore and support the Tomato Leaf 
-              Disease Prediction project. Your interest is greatly appreciated. If you
-              have any questions or feedback, please feel free to contact us
-              by clicking the button below
+               The project, Tomato Leaf Disease Prediction, is a web
+               application that uses Convolutional Neural Network (CNN) and
+               TensorFlow to detect and classify various types of tomato leaf
+               diseases from images. The application uses MERN stack
+               (MongoDB, Express, React, and Node.js) for accepting tomato leaf image input from farmers and
+               displaying the disease as output in real time. Additionally, FastAPI is used to connect
+               our CNN model with the frontend to provide a fast and reliable
+               service. The goal is to provide a simple and accessible tool for
+               farmers to monitor their tomato plants and take preventive
+               measures before the diseases spread and damage their crops. The
+               aim of the project is to help farmers save time, money, and
+               resources, and ultimately increase their productivity and
+               income. Suggestions for making this tool better are always appreciated. 
+               Thank you for taking the time to explore and support the Tomato Leaf 
+               Disease Prediction project. Your interest is greatly appreciated. If you
+               have any questions or feedback, please feel free to give a feedback
+               by clicking the button below
               </p>
 
               <button className="border-4 py-4 px-8 border-indigo-500 text-base font-semibold tracking-widest rounded-xl text-indigo-600 bg-indigo-50 hover:bg-indigo-100 uppercase transition-all duration-100" onClick={redirectToFeedbackPage}>
