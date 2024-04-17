@@ -130,7 +130,7 @@ const UploadImage = () => {
           'your prediction has been made successfully and stored in the database',
           {
             position: 'top-center',
-            autoClose: 5000,
+            autoClose: 3000,
             hideProgressBar: false,
             closeOnClick: true,
             pauseOnHover: true,
@@ -140,6 +140,8 @@ const UploadImage = () => {
         );
       } catch (error) {
         setLoading(false);
+
+        setOpenResultTableModal(false);
 
         console.log(error);
 
@@ -286,8 +288,8 @@ const UploadImage = () => {
             </AlertDialogDescription>
           </AlertDialogHeader>
           <AlertDialogFooter>
-            <AlertDialogCancel className='text-indigo-700 border-2 border-indigo-600'>Cancel</AlertDialogCancel>
-            <AlertDialogAction className='text-white bg-indigo-600' onClick={() => setOpenResultAnalysisModal(true)}>Continue</AlertDialogAction>
+            <AlertDialogCancel className='text-indigo-700 border-2 border-indigo-600 hover:border-indigo-700'>Cancel</AlertDialogCancel>
+            <AlertDialogAction className='text-white bg-indigo-600 hover:bg-indigo-800' onClick={() => setOpenResultAnalysisModal(true)}>Continue</AlertDialogAction>
           </AlertDialogFooter>
         </AlertDialogContent>
       </AlertDialog>
@@ -325,8 +327,8 @@ const UploadImage = () => {
             </AlertDialogDescription>
           </AlertDialogHeader>
           <AlertDialogFooter>
-            <AlertDialogCancel className='text-indigo-700 border-2 border-indigo-600'>Cancel</AlertDialogCancel>
-            <AlertDialogAction className='text-white bg-indigo-600' onClick={() => setOpenAboutAndCureOfTheDisease(true)}>Continue</AlertDialogAction>
+            <AlertDialogCancel className='text-indigo-700 border-2 border-indigo-600 hover:border-indigo-700'>Cancel</AlertDialogCancel>
+            <AlertDialogAction className='text-white bg-indigo-600 hover:bg-indigo-800' onClick={() => setOpenAboutAndCureOfTheDisease(true)}>Continue</AlertDialogAction>
           </AlertDialogFooter>
         </AlertDialogContent>
       </AlertDialog>
@@ -343,7 +345,7 @@ const UploadImage = () => {
                 <div>
                   <p className="flex flex-col items-center justify-center text-center">
                     <span className="font-bold">
-                      About the Predicted Disease:
+                      About {finalPrediction}:
                     </span>{' '}
                     <span>{aboutTheDisease}</span>
                   </p>
@@ -351,7 +353,7 @@ const UploadImage = () => {
                 <div>
                   <p className="flex flex-col items-center justify-center text-center">
                     <span className="font-bold">
-                      Possible Cure of the Predicted Disease:
+                      Possible Cure of {finalPrediction}:
                     </span>{' '}
                     <span>{cureOfTheDisease}</span>
                   </p>
@@ -360,8 +362,8 @@ const UploadImage = () => {
             </AlertDialogDescription>
           </AlertDialogHeader>
           <AlertDialogFooter>
-            <AlertDialogCancel className='text-indigo-700 border-2 border-indigo-600'>Cancel</AlertDialogCancel>
-            <AlertDialogAction className='text-white bg-indigo-600'>Finish</AlertDialogAction>
+            <AlertDialogCancel className='text-indigo-700 border-2 border-indigo-600 hover:border-indigo-700'>Cancel</AlertDialogCancel>
+            <AlertDialogAction className='text-white bg-indigo-600 hover:bg-indigo-800'>Finish</AlertDialogAction>
           </AlertDialogFooter>
         </AlertDialogContent>
       </AlertDialog>
