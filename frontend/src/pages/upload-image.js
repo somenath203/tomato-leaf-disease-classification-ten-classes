@@ -323,7 +323,7 @@ const UploadImage = () => {
             </AlertDialogDescription>
           </AlertDialogHeader>
           <AlertDialogFooter>
-            <AlertDialogAction className='text-indigo-600 bg-white hover:bg-white border-2 border-indigo-600 hover:border-indigo-800' onClick={() => setOpenResultTableModal(true)}>Previous</AlertDialogAction>
+            <AlertDialogAction className='text-indigo-600 bg-white hover:bg-white border-2 border-indigo-600 hover:border-indigo-800 mt-2 md:mt-0' onClick={() => setOpenResultTableModal(true)}>Previous</AlertDialogAction>
             <AlertDialogAction className='text-white bg-indigo-600 hover:bg-indigo-800' onClick={() => setOpenAboutAndCureOfTheDisease(true)}>Continue</AlertDialogAction>
           </AlertDialogFooter>
         </AlertDialogContent>
@@ -357,7 +357,7 @@ const UploadImage = () => {
             </AlertDialogDescription>
           </AlertDialogHeader>
           <AlertDialogFooter>
-            <AlertDialogAction className='text-indigo-600 bg-white hover:bg-white border-2 border-indigo-600 hover:border-indigo-800' onClick={() => setOpenResultAnalysisModal(true)}>Previous</AlertDialogAction>
+            <AlertDialogAction className='text-indigo-600 bg-white hover:bg-white border-2 border-indigo-600 hover:border-indigo-800 mt-2 md:mt-0' onClick={() => setOpenResultAnalysisModal(true)}>Previous</AlertDialogAction>
             <AlertDialogAction className='text-white bg-indigo-600 hover:bg-indigo-800'>Finish</AlertDialogAction>
           </AlertDialogFooter>
         </AlertDialogContent>
