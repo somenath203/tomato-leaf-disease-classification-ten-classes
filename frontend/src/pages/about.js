@@ -28,7 +28,7 @@ const About = () => {
 
             <div className="flex justify-center items-center flex-col gap-7">
               <p className="text-lg text-center px-7 lg:px-14 font-semibold text-indigo-600 tracking-wide mt-1">
-               The project, Tomato Leaf Disease Prediction, is a web
+               The project, Healthy Tomato, is a web
                application that uses Convolutional Neural Network (CNN) and
                TensorFlow to detect and classify various types of tomato leaf
                diseases from images. The application uses MERN stack
