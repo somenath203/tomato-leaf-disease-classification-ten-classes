@@ -59,7 +59,7 @@ const ProtectedRouteNavbar = () => {
           className="inline-flex items-center gap-2.5 text-lg font-bold text-black lg:text-3xl tracking-wideR"
           aria-label="logo"
         >
-          <i className="fa-solid fa-leaf text-indigo-500 text-xl lg:text-5xl"></i>
+          <i className="fa-solid fa-leaf text-indigo-500 text-3xl lg:text-5xl"></i>
           HEALTHY TOMATO
         </a>
 
