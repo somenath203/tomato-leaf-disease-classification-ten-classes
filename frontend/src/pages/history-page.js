@@ -68,8 +68,11 @@ const HistoryPage = () => {
           <ProtectedRouteNavbar />
 
           <section className="lg:w-11/12 mx-auto">
-            <p className="text-center text-2xl lg:text-3xl font-bold tracking-wide text-indigo-500 mb-16">
+            <p className="text-center text-2xl lg:text-3xl font-bold tracking-wide text-indigo-500 mb-10">
               HISTORY
+            </p>
+            <p className="text-center text-xl lg:text-2xl font-semibold tracking-wide text-indigo-500 mb-16">
+              Total Number of Predictions: {historyPred?.totalNumberOfPredictions}
             </p>
 
             {historyPred?.totalNumberOfPredictions === 0 ? (
@@ -118,6 +121,16 @@ const HistoryPage = () => {
                       {new Date(prediction?.createdAt).getDate()}/
                       {new Date(prediction?.createdAt).getMonth() + 1}/
                       {new Date(prediction?.createdAt).getFullYear()}
+                    </span>
+                  </p>
+                  <p className="text-gray-500 flex-col lg:flex-row">
+                    <span className="text-lg lg:text-xl">
+                      Time at which prediction was made:{' '}
+                    </span>
+                    <span className="text-lg lg:text-xl tracking-wider">
+                      {new Date(prediction?.createdAt).getHours()}: 
+                      {new Date(prediction?.createdAt).getMinutes() < 10 ? '0' + new Date(prediction?.createdAt).getMinutes() : new Date(prediction?.createdAt).getMinutes()}:
+                      {new Date(prediction?.createdAt).getSeconds() < 10 ? '0' + new Date(prediction?.createdAt).getSeconds() : new Date(prediction?.createdAt).getSeconds()}
                     </span>
                   </p>
                 </div>

@@ -60,7 +60,7 @@ const allPredictions = async (req, res) => {
       success: true,
       message: 'your prediction history has been fetched successfully',
       totalNumberOfPredictions: allPredictions.length,
-      allPredictions: allPredictions,
+      allPredictions: allPredictions.reverse(),
     });
   } catch (error) {
     res.status(StatusCodes.INTERNAL_SERVER_ERROR).send({
