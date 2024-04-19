@@ -128,7 +128,7 @@ const HistoryPage = () => {
                       Time at which prediction was made:{' '}
                     </span>
                     <span className="text-lg lg:text-xl tracking-wider">
-                      {new Date(prediction?.createdAt).getHours()}: 
+                      {new Date(prediction?.createdAt).getHours() < 10 ? '0' + new Date(prediction?.createdAt).getHours() : new Date(prediction?.createdAt).getHours()}: 
                       {new Date(prediction?.createdAt).getMinutes() < 10 ? '0' + new Date(prediction?.createdAt).getMinutes() : new Date(prediction?.createdAt).getMinutes()}:
                       {new Date(prediction?.createdAt).getSeconds() < 10 ? '0' + new Date(prediction?.createdAt).getSeconds() : new Date(prediction?.createdAt).getSeconds()}
                     </span>
