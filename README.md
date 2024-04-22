@@ -74,7 +74,7 @@ The frontend of this project is created with the help of ReactJS. It is integrat
 The frontend of the project is deployed on Vercel, the ExpressJS API of the project is deployed on Render and the FastAPI API of the deep learning model is deployed on HuggingSpace Spaces.
 
 ## Links
-1) Live Preview of the project: https://tomato-disease-classification-10-classes.vercel.app/
+1) Live Preview of the project: https://healthy-tomato.vercel.app/
 2) FastAPI API of the deep learning model: https://som11-tomato-disease-classification-10-classes.hf.space/
 3) Swagger documentation of the deep learning model: https://som11-tomato-disease-classification-10-classes.hf.space/docs
 4) ExpressJS API of the project: https://tomato-leaf-classification-project-10.onrender.com/
