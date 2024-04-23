@@ -93,7 +93,7 @@ const FeedbackPage = () => {
 
       MySwal.fire({
         title: 'Thank you for your Feedback',
-        text: 'Thank you for using our product and sharing your valuable feedback. We value your support and your input. Your response has been successfully saved.',
+        text: 'Thank you for using the product and sharing your valuable feedback. Your support and feedback is highly valuable for the continuous improvement of the product. Your response has been successfully saved.',
         icon: 'success',
       });
 
