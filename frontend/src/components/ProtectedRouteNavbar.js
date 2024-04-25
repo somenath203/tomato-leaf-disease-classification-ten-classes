@@ -55,7 +55,7 @@ const ProtectedRouteNavbar = () => {
     <>
       <header className="mb-8 flex flex-col lg:flex-row items-center justify-between py-4 md:mb-12 md:py-8 xl:mb-16">
         <a
-          href="/"
+          href="#"
           className="inline-flex items-center gap-2.5 text-lg font-bold text-black lg:text-3xl tracking-wideR"
           aria-label="logo"
         >
