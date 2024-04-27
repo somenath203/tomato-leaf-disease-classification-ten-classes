@@ -111,7 +111,16 @@ const GetStarted = () => {
                 Predict disease in tomato leaf
               </h1>
 
-              <p className="mb-8 leading-relaxed text-gray-500 md:mb-12 lg:w-4/5 xl:text-lg">
+              <div className="block lg:hidden overflow-hidden rounded-lg bg-gray-100 shadow-lg w-full m-auto mt-4 mb-6">
+                <img
+                  src={LeafImage}
+                  loading="lazy"
+                  alt="tomato leaf photo"
+                  className="h-full w-full object-cover object-center"
+                />
+              </div>
+
+              <p className="mb-8 leading-relaxed text-gray-500 md:mb-12 lg:w-4/5 text-lg md:text-2xl lg:text-lg">
                 This is an AI tool that helps you detect the disease that your
                 tomato plant is having based on the picture of the leaf using
                 state of the art deep learning models.
@@ -119,7 +128,7 @@ const GetStarted = () => {
 
               <div className="flex flex-col gap-2.5 sm:flex-row sm:justify-center lg:justify-start">
                 <button
-                  className="inline-block rounded-lg tracking-widest bg-indigo-500 px-8 py-3 text-center text-sm font-semibold text-white outline-none ring-indigo-300 transition duration-100 hover:bg-indigo-600 focus-visible:ring active:bg-indigo-700 md:text-base"
+                  className="inline-block rounded-lg tracking-widest bg-indigo-500 px-8 py-4 md:py-5 lg:py-3 text-center text-sm font-semibold text-white outline-none ring-indigo-300 transition duration-100 hover:bg-indigo-600 focus-visible:ring active:bg-indigo-700 md:text-base md:w-full lg:w-56"
                   onClick={signUpClerk}
                 >
                   GET STARTED
