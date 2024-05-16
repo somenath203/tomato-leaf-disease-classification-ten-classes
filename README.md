@@ -63,7 +63,7 @@ The frontend of this project is created with the help of ReactJS. It is integrat
 
 ## About the Tomato Leaf Image validation
 
-A check is implemented in the frontend webapp that confirms whether an image uploaded by the user is indeed an image of a leaf or not. If the uploaded image is not that of a leaf, then, an error toast is thrown to the user saying him/her that the uploaded image is not a leaf image. The model used for this check is InceptionV2 model that is trained on a dataset which is a combination of tomato leaf and cifar10 dataset where tomato leaf is marked the label of `leaf` and cifar10 images is marked the label of `not_leaf`.
+A check is implemented in the frontend webapp that confirms whether an image uploaded by the user is indeed an image of a leaf or not before passing the image to the model. If the uploaded image is not that of a leaf, then, an error toast is thrown to the user saying him/her that the uploaded image is not a leaf image. The model used for this check is InceptionV2 model that is trained on a dataset which is a combination of tomato leaf and cifar10 dataset where tomato leaf is marked the label of `leaf` and cifar10 images is marked the label of `not_leaf`.
 
 ## Deployment
 
