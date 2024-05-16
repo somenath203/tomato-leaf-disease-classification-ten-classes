@@ -47,7 +47,7 @@ A total of 7 deep learning models are trained on 30 epochs for disease classific
    - Testing Accuracy: 94.40%
 
 
-***Out of all the models, ResNet50 model stands out as the most effective one, with a training accuracy of 99.11% and testing accuracy of 94.59%.***
+**Out of all the models, ResNet50 model stands out as the most effective one, with a training accuracy of 99.11% and testing accuracy of 94.59%.**
 
 ## About the FastAPI API
 
@@ -79,5 +79,4 @@ The frontend of the project is deployed on Vercel, the ExpressJS API of the proj
 
 ## Warning
 
-While the model of this project can classify the tomato leaf disease correctly, but in some cases, the models may misclassify disease or fail to detect them altogether, therefore, it is strongly advised not to rely solely 
-on the output of this model.
+While the models are able to classify the tomato leaf disease accurately, in some cases, they may misclassify the disease or fail to detect it altogether. Therefore, it is strongly advised not to rely solely on the output of these models.
