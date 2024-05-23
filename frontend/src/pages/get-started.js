@@ -6,10 +6,11 @@ import { useEffect, useState } from 'react';
 import { NavLink, useNavigate } from 'react-router-dom';
 import { useClerk, useUser } from '@clerk/clerk-react';
 import axios from 'axios';
+import { toast } from 'react-toastify';
 
 import Loader from '../components/Loader';
 import LeafImage from './../assets/tomato_leaf.png';
-import { toast } from 'react-toastify';
+
 
 const GetStarted = () => {
   const [loading, setLoading] = useState();
