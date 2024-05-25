@@ -59,7 +59,7 @@ ExpressJS API is used for implementing user authentication and overall data mana
 
 ## About the Frontend Web Application
 
-The frontend of this project is developed using ReactJS. It interfaces with deep learning models through **FastAPI**, allowing users to upload images of tomato leaves and obtain the predicted results. The web application features:
+The frontend of this project is developed using ReactJS. It interfaces with deep learning models through FastAPI, allowing users to upload images of tomato leaves and obtain the predicted results. The web application features:
 
 - A Predict Page Section: Takes Tomato Leaf Image as input and return the predicted disease accordingly.
 - A Resource Section: Displays each and every detail about the various tomato diseases.
