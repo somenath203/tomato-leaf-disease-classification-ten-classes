@@ -1,4 +1,4 @@
-# Tomato Disease Classification on 10 classes (9 disease class + 1 healthy class)
+# Tomato Leaf Disease Classification on 10 classes (9 disease class + 1 healthy class)
 
 ## Introduction
 
