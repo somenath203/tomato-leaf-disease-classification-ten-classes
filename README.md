@@ -1,6 +1,6 @@
 # Tomato Leaf Disease Classification on 10 classes (9 disease class + 1 healthy class)
 
-## Demo Video of the whole application
+## Demo video of the whole application
 
 https://www.youtube.com/watch?v=H4-kjJWBXrM
 
