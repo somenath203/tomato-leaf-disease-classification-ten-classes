@@ -1,5 +1,9 @@
 # Tomato Leaf Disease Classification on 10 classes (9 disease class + 1 healthy class)
 
+## Demo Video of the whole application
+
+[![Demo Video](https://img.youtube.com/vi/H4-kjJWBXrM/0.jpg)](https://www.youtube.com/watch?v=H4-kjJWBXrM)
+
 ## Introduction
 
 Welcome to the project. In this project, deep learning techniques are used to detect and classify diseases in tomato leaves. This project is designed to help farmers know more about the health of their crops, providing valuable insights for effective crop management. Currently, the model is able to detect 9 diseases of tomato leaf and those are:
