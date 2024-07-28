@@ -2,7 +2,9 @@
 
 ## Demo Video of the whole application
 
-[![Demo Video](https://img.youtube.com/vi/H4-kjJWBXrM/0.jpg)](https://www.youtube.com/watch?v=H4-kjJWBXrM)
+https://www.youtube.com/watch?v=H4-kjJWBXrM
+
+Click the above link to watch the demo video of this project.
 
 ## Introduction
 
