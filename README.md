@@ -2,6 +2,8 @@
 
 ## Demo video of the whole application
 
+![tomatoleafprojectpic](https://github.com/user-attachments/assets/29c786c3-041a-4875-8ec7-daeefd62b034)
+
 https://www.youtube.com/watch?v=H4-kjJWBXrM
 
 Click the above link to watch the demo video of this project.
