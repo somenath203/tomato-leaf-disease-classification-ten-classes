@@ -41,8 +41,6 @@ The performance of each model is summarized below:
 | ⚡ **AlexNet**         | 97.13%              | 94.40%              |
 | 🔗 **Ensemble Model** | 98.94%              | 94.40%              |
 
----
-
 ### 💡 Key Insight
 
 🏆 **ResNet50** emerged as the **best-performing model**, achieving:
