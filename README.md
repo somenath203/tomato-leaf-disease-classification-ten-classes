@@ -31,15 +31,15 @@ The performance of each model is summarized below:
 
 ### 🧠 Model Performance Comparison
 
-| 🤖 Model              | 🔗 Description                                   | ✅ Training Accuracy | 📈 Testing Accuracy |
-| --------------------- | ------------------------------------------------ | ------------------- | ------------------- |
-| 🧩 **Novel CNN**      | Custom-built CNN architecture                    | 94.52%              | 93.00%              |
-| 📱 **MobileNetV2**    | Lightweight & efficient model                    | 96.78%              | 91.69%              |
-| 🖼️ **VGG19**         | Deep architecture with strong feature extraction | 97.31%              | 89.60%              |
-| 🏆 **ResNet50**       | Residual network with superior performance       | **99.11%**          | **94.59%**          |
-| 🌐 **InceptionV3**    | Multi-scale feature extraction                   | 89.42%              | 83.99%              |
-| ⚡ **AlexNet**         | Classic CNN architecture                         | 97.13%              | 94.40%              |
-| 🔗 **Ensemble Model** | Combines Novel CNN + ResNet50 + MobileNetV2      | 98.94%              | 94.40%              |
+| 🤖 Model              | ✅ Training Accuracy | 📈 Testing Accuracy |
+| --------------------- | ------------------- | ------------------- |
+| 🧩 **Novel CNN**      | 94.52%              | 93.00%              |
+| 📱 **MobileNetV2**    | 96.78%              | 91.69%              |
+| 🖼️ **VGG19**         | 97.31%              | 89.60%              |
+| 🏆 **ResNet50**       | **99.11%**          | **94.59%**          |
+| 🌐 **InceptionV3**    | 89.42%              | 83.99%              |
+| ⚡ **AlexNet**         | 97.13%              | 94.40%              |
+| 🔗 **Ensemble Model** | 98.94%              | 94.40%              |
 
 ---
 
