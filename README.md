@@ -24,42 +24,35 @@ Welcome to the project! This initiative leverages deep learning to detect and cl
 
 ---
 
-## 📊 About the Deep Learning Models  
+## 📊 About the Deep Learning Models
 
-Seven deep learning models were trained over 30 epochs for disease classification 🚀:  
+Seven deep learning models were trained over **30 epochs** to perform accurate tomato leaf disease classification 🚀.
+The performance of each model is summarized below:
 
-1. **Novel CNN Model**  
-   - ✅ Training Accuracy: 94.52%  
-   - 📈 Testing Accuracy: 93.00%  
+### 🧠 Model Performance Comparison
 
-2. **MobileNetV2**  
-   - ✅ Training Accuracy: 96.78%  
-   - 📈 Testing Accuracy: 91.69%  
-
-3. **VGG19**  
-   - ✅ Training Accuracy: 97.31%  
-   - 📈 Testing Accuracy: 89.60%  
-
-4. **ResNet50**  
-   - ✅ Training Accuracy: 99.11%  
-   - 📈 Testing Accuracy: 94.59%  
-
-5. **InceptionV3**  
-   - ✅ Training Accuracy: 89.42%  
-   - 📈 Testing Accuracy: 83.99%  
-
-6. **AlexNet**  
-   - ✅ Training Accuracy: 97.13%  
-   - 📈 Testing Accuracy: 94.40%  
-
-7. **Ensemble Learning (Average Method)**  
-   - 🔗 Combines Novel CNN, ResNet50, and MobileNetV2  
-   - ✅ Training Accuracy: 98.94%  
-   - 📈 Testing Accuracy: 94.40%  
-
-💡 **ResNet50** stands out as the most effective model, achieving a training accuracy of 99.11% and testing accuracy of 94.59%!  
+| 🤖 Model              | 🔗 Description                                   | ✅ Training Accuracy | 📈 Testing Accuracy |
+| --------------------- | ------------------------------------------------ | ------------------- | ------------------- |
+| 🧩 **Novel CNN**      | Custom-built CNN architecture                    | 94.52%              | 93.00%              |
+| 📱 **MobileNetV2**    | Lightweight & efficient model                    | 96.78%              | 91.69%              |
+| 🖼️ **VGG19**         | Deep architecture with strong feature extraction | 97.31%              | 89.60%              |
+| 🏆 **ResNet50**       | Residual network with superior performance       | **99.11%**          | **94.59%**          |
+| 🌐 **InceptionV3**    | Multi-scale feature extraction                   | 89.42%              | 83.99%              |
+| ⚡ **AlexNet**         | Classic CNN architecture                         | 97.13%              | 94.40%              |
+| 🔗 **Ensemble Model** | Combines Novel CNN + ResNet50 + MobileNetV2      | 98.94%              | 94.40%              |
 
 ---
+
+### 💡 Key Insight
+
+🏆 **ResNet50** emerged as the **best-performing model**, achieving:
+
+* ✅ **Training Accuracy:** 99.11%
+* 📈 **Testing Accuracy:** 94.59%
+
+This makes it the most reliable model for real-world disease prediction in this project.
+
+✨ Additionally, the **Ensemble Model** provides strong and stable performance by combining multiple architectures, making it a robust alternative.
 
 ## 🌐 About the FastAPI API  
 
