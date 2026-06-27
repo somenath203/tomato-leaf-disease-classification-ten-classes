@@ -90,7 +90,7 @@ const GetStarted = () => {
               aria-label="logo"
             >
               <i className="fa-solid fa-leaf text-indigo-500 text-3xl lg:text-5xl"></i>
-              HEALTHY TOMATO
+              TomatoLeaf Care
             </a>
 
             <nav className="mt-4 lg:mt-0 lg:flex items-center gap-5">
