@@ -60,7 +60,7 @@ const ProtectedRouteNavbar = () => {
           aria-label="logo"
         >
           <i className="fa-solid fa-leaf text-indigo-500 text-3xl lg:text-5xl"></i>
-          HEALTHY TOMATO
+          TomatoLeaf Care
         </a>
 
         <div className="flex gap-4 items-center justify-center mt-3 lg:mt-0">
