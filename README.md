@@ -94,7 +94,7 @@ The project is deployed across multiple platforms:
 
 ## 🔗 Links  
 
-1️⃣ **Live Preview**: [https://healthy-tomato.vercel.app/](https://healthy-tomato.vercel.app/)  
+1️⃣ **Live Preview**: [https://tomatoleaf-care.vercel.app/](https://tomatoleaf-care.vercel.app/)  
 2️⃣ **FastAPI Deep Learning Model API**: [https://som11-multimodel-tomato-disease-classification-t-1303b88.hf.space/](https://som11-multimodel-tomato-disease-classification-t-1303b88.hf.space/)  
 3️⃣ **Swagger Documentation (Deep Learning Models)**: [https://som11-multimodel-tomato-disease-classification-t-1303b88.hf.space/docs](https://som11-multimodel-tomato-disease-classification-t-1303b88.hf.space/docs)  
 4️⃣ **FastAPI Leaf Validation API**: [https://som11-tomato-leaf-or-not-tomato-leaf.hf.space/](https://som11-tomato-leaf-or-not-tomato-leaf.hf.space/)  
